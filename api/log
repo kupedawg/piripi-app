@@ -1,0 +1,33 @@
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).end();
+
+  const { session_id, role, message } = req.body || {};
+  if (!session_id || !role || !message) return res.status(400).json({ error: 'Missing fields' });
+
+  try {
+    const response = await fetch(
+      `${process.env.SUPABASE_URL}/rest/v1/conversations`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': process.env.SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ session_id, role, message })
+      }
+    );
+
+    if (!response.ok) {
+      const err = await response.text();
+      console.error('Supabase error:', err);
+      return res.status(500).json({ error: 'Log failed' });
+    }
+
+    return res.status(200).json({ ok: true });
+  } catch (error) {
+    console.error('Log error:', error);
+    return res.status(500).json({ error: 'Log failed' });
+  }
+}
