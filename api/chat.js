@@ -12,10 +12,20 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify(req.body)
     });
-    const data = await response.json();
-    return res.status(200).json(data);
+
+    const text = await response.text();
+    console.log('Anthropic response:', text);
+    
+    try {
+      const data = JSON.parse(text);
+      return res.status(200).json(data);
+    } catch(e) {
+      console.error('Parse error:', text);
+      return res.status(500).json({ error: 'Parse failed', raw: text });
+    }
+
   } catch (error) {
-    console.error('Chat API error:', error);
-    return res.status(500).json({ error: 'Something went wrong' });
+    console.error('Chat API error:', error.message);
+    return res.status(500).json({ error: error.message });
   }
 }
