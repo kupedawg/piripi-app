@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phil's EA Agent — Architecture</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0f14;
+    color: #e8e4dc;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 24px;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    margin-bottom: 48px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .header-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    font-size: 14px;
+    color: #7a8494;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  /* INTERFACE LAYER */
+  .interface-bar {
+    background: #1a1d24;
+    border: 1px solid #2a2f3a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .interface-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c8a96e, #e8c98e, #c8a96e);
+  }
+  .whatsapp-icon {
+    width: 48px;
+    height: 48px;
+    background: #25D366;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .interface-text h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+  .interface-text p {
+    font-size: 12px;
+    color: #7a8494;
+  }
+  .interface-modes {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+  .mode-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .mode-pull { background: #1e2940; color: #6b9de8; border: 1px solid #2a3f6a; }
+  .mode-push { background: #2a1e14; color: #c8a96e; border: 1px solid #6a4a1e; }
+
+  /* ARROW */
+  .arrow-down {
+    text-align: center;
+    color: #3a4050;
+    font-size: 20px;
+    margin: 4px 0 12px;
+  }
+
+  /* BRAIN */
+  .brain-box {
+    background: linear-gradient(135deg, #1a1d24 0%, #1e2028 100%);
+    border: 1px solid #c8a96e44;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .brain-box::after {
+    content: 'BRAIN';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    font-weight: 800;
+    color: #c8a96e08;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.1em;
+  }
+  .brain-box h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #c8a96e;
+    margin-bottom: 4px;
+  }
+  .brain-box p {
+    font-size: 12px;
+    color: #7a8494;
+    margin-bottom: 16px;
+  }
+  .brain-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brain-tag {
+    background: #0d0f14;
+    border: 1px solid #2a2f3a;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #b0b8c8;
+  }
+
+  /* FOUR WORLDS */
+  .worlds-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin: 28px 0 14px;
+    font-weight: 600;
+  }
+  .worlds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .world-card {
+    background: #1a1d24;
+    border: 1px solid #2a2f3a;
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .world-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  .world-money::before { background: #4ade80; }
+  .world-family::before { background: #f472b6; }
+  .world-business::before { background: #818cf8; }
+  .world-brand::before { background: #fb923c; }
+
+  .world-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .world-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-money { background: #4ade80; }
+  .dot-family { background: #f472b6; }
+  .dot-business { background: #818cf8; }
+  .dot-brand { background: #fb923c; }
+
+  .world-items {
+    list-style: none;
+  }
+  .world-items li {
+    font-size: 12px;
+    color: #7a8494;
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .world-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #3a4050;
+    font-size: 10px;
+  }
+
+  /* CONNECTIONS */
+  .connections-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin: 28px 0 14px;
+    font-weight: 600;
+  }
+  .connections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .conn-card {
+    background: #1a1d24;
+    border: 1px solid #2a2f3a;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .conn-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .conn-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e8e4dc;
+    margin-bottom: 3px;
+  }
+  .conn-desc {
+    font-size: 10px;
+    color: #5a6070;
+    line-height: 1.4;
+  }
+  .conn-phase {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .phase-now { background: #1a2e1a; color: #4ade80; }
+  .phase-next { background: #1e1e2e; color: #818cf8; }
+  .phase-later { background: #2e1e14; color: #fb923c; }
+
+  /* BUILD SEQUENCE */
+  .build-section {
+    background: #1a1d24;
+    border: 1px solid #2a2f3a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .build-section h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .build-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .build-phase {
+    position: relative;
+  }
+  .phase-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #c8a96e18;
+    line-height: 1;
+    margin-bottom: -8px;
+  }
+  .phase-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #c8a96e;
+    margin-bottom: 10px;
+  }
+  .phase-weeks {
+    font-size: 10px;
+    color: #5a6070;
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .phase-tasks {
+    list-style: none;
+  }
+  .phase-tasks li {
+    font-size: 11px;
+    color: #7a8494;
+    padding: 4px 0;
+    border-bottom: 1px solid #1e2228;
+    line-height: 1.4;
+  }
+  .phase-tasks li:last-child { border-bottom: none; }
+
+  /* MONDAY BRIEFING */
+  .monday-box {
+    background: #0d1420;
+    border: 1px solid #1e3050;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .monday-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #25D366, #128c7e);
+  }
+  .monday-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .monday-avatar {
+    width: 40px; height: 40px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .monday-from {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .monday-time {
+    font-size: 11px;
+    color: #5a6070;
+  }
+  .monday-bubble {
+    background: #1a2e20;
+    border-radius: 0 12px 12px 12px;
+    padding: 16px 18px;
+    font-size: 13px;
+    color: #c8d8c0;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  .monday-bubble .highlight {
+    color: #4ade80;
+    font-weight: 600;
+  }
+  .monday-bubble .section-break {
+    display: block;
+    margin: 10px 0 4px;
+    font-size: 11px;
+    color: #25D366;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #1e2228;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note p {
+    font-size: 11px;
+    color: #3a4050;
+  }
+  .footer-tag {
+    font-size: 11px;
+    color: #c8a96e;
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .worlds-grid { grid-template-columns: 1fr; }
+    .connections-grid { grid-template-columns: repeat(2, 1fr); }
+    .build-phases { grid-template-columns: 1fr; }
+    .interface-modes { display: none; }
+    .header-title { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Next Chapter Consulting · EA Agent Architecture</div>
+    <div class="header-title">Phil's Executive Assistant<br>Agent — v0.1</div>
+    <div class="header-sub">A proactive AI EA that manages money, family, business building, and brand. Phone-first. WhatsApp interface. Built to learn from, then replicate for SME clients.</div>
+  </div>
+
+  <!-- INTERFACE LAYER -->
+  <div class="section-label">Interface Layer</div>
+  <div class="interface-bar">
+    <div class="whatsapp-icon">💬</div>
+    <div class="interface-text">
+      <h3>WhatsApp — Primary Interface</h3>
+      <p>Two-way dialogue on your phone. Talk to it, it messages you. Voice or text.</p>
+    </div>
+    <div class="interface-modes">
+      <span class="mode-pill mode-pull">Pull — you ask</span>
+      <span class="mode-pill mode-push">Push — it tells you</span>
+    </div>
+  </div>
+
+  <div class="arrow-down">↕</div>
+
+  <!-- BRAIN -->
+  <div class="section-label">Intelligence Layer</div>
+  <div class="brain-box">
+    <h3>Claude API — The Brain</h3>
+    <p>Generalist intelligence shaped by your system prompt, your knowledge, and your context</p>
+    <div class="brain-tags">
+      <span class="brain-tag">Your system prompt (who Phil is)</span>
+      <span class="brain-tag">Your knowledge base (OneDrive)</span>
+      <span class="brain-tag">Your businesses & priorities</span>
+      <span class="brain-tag">Your people (Rachel, Donavon, Kil)</span>
+      <span class="brain-tag">Your communication style</span>
+      <span class="brain-tag">Scheduled triggers</span>
+    </div>
+  </div>
+
+  <!-- FOUR WORLDS -->
+  <div class="worlds-label">Your Four Worlds — What It Manages</div>
+  <div class="worlds-grid">
+    <div class="world-card world-money">
+      <h4><span class="world-dot dot-money"></span>Money</h4>
+      <ul class="world-items">
+        <li>Weekly contracting invoice (Robert Walters)</li>
+        <li>GST & tax reminders</li>
+        <li>Business costs — keep low, claim right</li>
+        <li>Mortgage ($500k) — fortnightly check-in</li>
+        <li>Two freehold houses goal tracking</li>
+        <li>Spreadsheet → Xero transition path</li>
+      </ul>
+    </div>
+    <div class="world-card world-family">
+      <h4><span class="world-dot dot-family"></span>Family</h4>
+      <ul class="world-items">
+        <li>Donavon's schedule — pickups, sport, school</li>
+        <li>iPhone calendar sync for family events</li>
+        <li>Rachel — communication loop, key dates</li>
+        <li>Non-negotiable priority flag</li>
+        <li>Habit nudges — dad time, family time</li>
+      </ul>
+    </div>
+    <div class="world-card world-business">
+      <h4><span class="world-dot dot-business"></span>Business Building</h4>
+      <ul class="world-items">
+        <li>Tupuna Pai — tasks, momentum, pipeline</li>
+        <li>Ākina.AI — product development</li>
+        <li>Kil & Te Amokura — collaboration cadence</li>
+        <li>Contract end planning (June 2027)</li>
+        <li>SME agent service design</li>
+        <li>Opportunity & idea capture</li>
+      </ul>
+    </div>
+    <div class="world-card world-brand">
+      <h4><span class="world-dot dot-brand"></span>Brand & BD</h4>
+      <ul class="world-items">
+        <li>LinkedIn posting rhythm & content ideas</li>
+        <li>Relationship nudges — who to reach out to</li>
+        <li>Email prioritisation — you decide, EA drafts</li>
+        <li>Job scanning (weekly criteria check)</li>
+        <li>Māori AI Leader positioning</li>
+        <li>Pipeline & opportunity tracking</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONNECTIONS -->
+  <div class="connections-label">Connections — What It Plugs Into</div>
+  <div class="connections-grid">
+    <div class="conn-card">
+      <div class="conn-icon">📅</div>
+      <div class="conn-name">iPhone Calendar</div>
+      <div class="conn-desc">Donavon's schedule, family events, personal appointments</div>
+      <span class="conn-phase phase-now">BUILD FIRST</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">📧</div>
+      <div class="conn-name">Outlook Email</div>
+      <div class="conn-desc">Prioritise inbox, draft replies, flag important threads</div>
+      <span class="conn-phase phase-now">BUILD FIRST</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">📁</div>
+      <div class="conn-name">OneDrive</div>
+      <div class="conn-desc">Your knowledge base — files, notes, ideas, business docs</div>
+      <span class="conn-phase phase-now">BUILD FIRST</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">💰</div>
+      <div class="conn-name">Finance (Spreadsheet)</div>
+      <div class="conn-desc">Invoices, costs, mortgage — fortnightly snapshot</div>
+      <span class="conn-phase phase-next">PHASE 2</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">💼</div>
+      <div class="conn-name">LinkedIn</div>
+      <div class="conn-desc">Content scheduling, relationship tracking, brand monitoring</div>
+      <span class="conn-phase phase-next">PHASE 2</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">🔍</div>
+      <div class="conn-name">Web Search</div>
+      <div class="conn-desc">Job scanning, news about clients, AI sector updates</div>
+      <span class="conn-phase phase-next">PHASE 2</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">🧾</div>
+      <div class="conn-name">Xero</div>
+      <div class="conn-desc">Business accounting, GST, tax — when ready</div>
+      <span class="conn-phase phase-later">PHASE 3</span>
+    </div>
+    <div class="conn-card">
+      <div class="conn-icon">🤖</div>
+      <div class="conn-name">Other Agents</div>
+      <div class="conn-desc">Marketing, finance, CRM agents as ecosystem grows</div>
+      <span class="conn-phase phase-later">FUTURE</span>
+    </div>
+  </div>
+
+  <!-- BUILD SEQUENCE -->
+  <div class="build-section">
+    <h3>Build Sequence — Phased Approach</h3>
+    <div class="build-phases">
+      <div class="build-phase">
+        <div class="phase-num">01</div>
+        <div class="phase-title">Brain + Interface</div>
+        <div class="phase-weeks">WEEKS 1–2</div>
+        <ul class="phase-tasks">
+          <li>WhatsApp ↔ Claude API connected</li>
+          <li>System prompt written (who Phil is)</li>
+          <li>OneDrive knowledge loaded</li>
+          <li>Basic Q&A working on your phone</li>
+          <li>Monday briefing template built</li>
+        </ul>
+      </div>
+      <div class="build-phase">
+        <div class="phase-num">02</div>
+        <div class="phase-title">Calendar + Money</div>
+        <div class="phase-weeks">WEEKS 3–4</div>
+        <ul class="phase-tasks">
+          <li>iPhone/M365 calendar connected</li>
+          <li>Donavon schedule awareness live</li>
+          <li>Finance spreadsheet connected</li>
+          <li>Invoice tracking & GST reminders</li>
+          <li>Fortnightly money check-in message</li>
+        </ul>
+      </div>
+      <div class="build-phase">
+        <div class="phase-num">03</div>
+        <div class="phase-title">Email + Proactive</div>
+        <div class="phase-weeks">WEEKS 5–8</div>
+        <ul class="phase-tasks">
+          <li>Outlook connected — inbox triage</li>
+          <li>Draft emails in Phil's voice</li>
+          <li>Weekly job scan running</li>
+          <li>Relationship nudge engine</li>
+          <li>LinkedIn content suggestions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONDAY BRIEFING PREVIEW -->
+  <div class="section-label">What Monday Morning Looks Like</div>
+  <div class="monday-box">
+    <div class="monday-header">
+      <div class="monday-avatar">🤖</div>
+      <div>
+        <div class="monday-from">EA — Phil's Assistant</div>
+        <div class="monday-time">Monday 7:00am</div>
+      </div>
+    </div>
+    <div class="monday-bubble">
+      Morena Phil 👋 Here's your week.<br><br>
+      <span class="section-break">💰 Money</span>
+      Invoice due Friday — <span class="highlight">40hrs @ $190 = $7,600</span>. Send to Robert Walters by Thursday. GST return due end of month.<br><br>
+      <span class="section-break">📅 This Week</span>
+      Donavon — <span class="highlight">swimming Wednesday 5pm</span>, water polo Saturday 9am. No work calendar conflicts.<br><br>
+      <span class="section-break">🏗️ Business</span>
+      Tupuna Pai — 2 open tasks. Last message to Kil was 6 days ago, might be worth a check-in. Ākina — no activity this week.<br><br>
+      <span class="section-break">📣 Brand</span>
+      No LinkedIn post in 5 days. I've got a draft ready on your AI governance angle — want me to send it through?<br><br>
+      <span class="section-break">👥 Reach Out</span>
+      Hayden Swann — haven't connected in 3 weeks. Hilton Collier — still waiting on your email. Want me to draft both?
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <p>Next Chapter Consulting NZ · Phil Kupenga · EA Agent v0.1 · June 2026</p>
+    <span class="footer-tag">Build it for yourself → replicate for SME clients</span>
+  </div>
+
+</div>
+</body>
+</html>
