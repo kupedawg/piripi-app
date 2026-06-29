@@ -196,3 +196,26 @@ Next Chapter website: nextchapter.co.nz
 Tāiki E: impact@taikie.nz
 Te Hapori Matihiko: matihiko.nz
 Tech New Zealand: technewzealand.org.nz
+
+---
+
+## Akina.AI — Free Tool for Workers Navigating AI
+
+akinaai.nz
+
+Built by Phil through Next Chapter Consulting NZ and Te Amokura Consultants. Free for all workers in Aotearoa. No login required.
+
+What it does: You enter your role and industry, and it analyses how AI will change your mahi — and what you should do next. It is grounded in NZ labour market data, O*NET research, and lived experience from the frontline of digital transition.
+
+Who it is for:
+- Yourself — understand how AI will affect your specific role
+- Your child — help them understand what is coming
+- Students — figure out where to focus
+- Teams and organisations — understand workforce AI readiness
+
+It follows the Feel it. Reframe it. Do it. framework:
+1. Feel it — acknowledge the change
+2. Reframe it — choose opportunity
+3. Do it — take practical action
+
+If someone is worried about AI and their job, or a parent wanting to help their child prepare, or a student figuring out their future — send them to akinaai.nz. It takes 30-45 seconds and gives a proper role analysis, not a quick guess.
