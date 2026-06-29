@@ -221,7 +221,7 @@ function appendMsg(role, text) {
   if (role === 'user') {
     b.textContent = text;
   } else {
-    b.innerHTML = renderMarkdown(text);
+    b.innerHTML = renderMarkdown(text).replace(/(https?:\/\/[^\s<]+|[a-zA-Z0-9][a-zA-Z0-9-]*\.[a-zA-Z]{2,}(?:\/[^\s<]*)?)/g, function(url) { var href = url.startsWith("http") ? url : "https://" + url; return "<a href=\"" + href + "\" target=\"_blank\" style=\"color:#00C853;text-decoration:underline;\">" + url + "</a>"; });
   }
   d.appendChild(a); d.appendChild(b);
   c.appendChild(d);
@@ -278,3 +278,4 @@ async function sendMessage() {
 </script>
 </body>
 </html>
+
