@@ -273,3 +273,65 @@ Outcome: Participants moved from benefits to tech careers. 90% still employed th
 The philosophy behind it: Ko te ao hurihuri — the world keeps turning. This framework is a living system for transformation. Built on kaupapa. Strengthened by learning. Measured in trust. The goal is not to build projects — it is to deliver outcomes, grow people, relationships, and futures.
 
 If you want to explore using this framework in your community or organisation, connect with Phil on LinkedIn: linkedin.com/in/phil-kupenga
+
+---
+
+## Phil Kupenga's Community Change Framework — The Real Version
+
+This is not a corporate framework. It is what Phil actually did — and learned — running the Tairāwhiti Tech Talent Incubator. Six stages, told honestly.
+
+### Stage 1 — Listen (Current State)
+
+Before anything else, get the lay of the land. Phil grew up in Gisborne but went back after 20 years thinking he knew what was happening. He did not. You have to do the work.
+
+That means scanning at multiple levels — nationally, what is happening in your sector, who are the Maori already in tech, what are others doing? Then regionally — who are the employers, who is running things, who cares about this kaupapa? Then locally — who are the real people you are trying to serve, what are their lives like, what are the barriers?
+
+Talk to people. Critique your idea with them. Find out who the champions are — the ones who will back you when things get hard. Listen more than you talk. Phil was a Gisborne boy who thought he knew his own town. The listening phase taught him he did not. That humility is the starting point.
+
+### Stage 2 — Collaborate (Find Your People)
+
+Once you know the landscape, get clear on your problem statement and do not falter from it. Phil's was simple: most of our people are in low-wage, labour-intensive roles that automation is coming for first. That is the problem. High-value tech employment is the solution.
+
+When you are clear on your problem, you can find the people whose story connects to yours. Tāiki E was about the Aroha Economy and entrepreneurship — Phil found the overlap. MSD was about employment outcomes — Phil found the lever. Dev Academy wanted guaranteed jobs before committing — Phil found the funding to break that deadlock.
+
+Champions will not know everything about you and you will not rely on everything from them. But you have to rely on something. Be honest about what you need and what you can deliver. Funders want to know your problem, your solution, your timelines, how many people, what the outcomes are. Know your detail. And be true to your kaupapa — people can tell when you are not.
+
+### Stage 3 — Design (Build It Around What You Have)
+
+The funding model will shape your design whether you like it or not. Phil's MSD funding was built around employment outcomes — getting people from benefits into jobs. That dictated what the programme looked like. The funding model is often broken — it does not suit innovation, it suits compliance. You work within it and supplement where you can.
+
+The design is the training provider, the venue, the pastoral support, the cohort size, the timeline — all the pieces assembled together. But do not assume your first design is right. Phil's first cohort passed. His second cohort passed. His third cohort did not. He had to stop and figure out why.
+
+The answer was three things: recruit better, put more support around students during the course, and communicate more closely with tutors to know what was happening on the ground in real time. When he fixed those three things, pass rates went up. Design is not a one-off. It is something you keep adjusting.
+
+### Stage 4 — Deliver (Show Up Every Day)
+
+Day to day delivery is three things running at the same time: making sure current students are passing and supported, finding the next cohort of candidates, and finding the next employers.
+
+A lot of it is business development — proactive emails, proactive meetings, proactive conversations. If you do not do those things nothing happens. Phil was out on weekends doing things that were not in his job description because that is what it took.
+
+The trust comes from showing up day in, day out. People see you there. They start to understand why you are doing it. Phil was not the most polished talker — but people felt his commitment. His belief and emotion came through. That is what secured employers, candidates, and funding. That is something you cannot teach. You have to genuinely believe in what you are doing, because people will feel it if you do not.
+
+Quick wins matter. They are hard to come by but when you get a few graduates into jobs, when the next cohort comes in, that momentum builds. Celebrate those wins because the road is long and trust takes time to build in communities. Phil underestimated that. It is probably the most important thing he would tell anyone starting this.
+
+### Stage 5 — Reflect (Use What You Know)
+
+When things are not working — go back to your strengths. Phil went back to what he knew: business development, project management, controlling what he could control each day. Treat it like a project. What is in the backlog? What can you do today? Review and improve constantly.
+
+The third cohort not passing was daunting. But the answer was not complicated — better recruitment, better visibility, better communication with tutors. The reflection is not about big strategy sessions. It is about honestly asking what is working and what is not, and being willing to change it.
+
+### Stage 6 — Strengthen (How Do You Embed the Change?)
+
+This is the hardest stage and the one Phil is most honest about not fully solving.
+
+When a programme is driven by one person's personality and passion — and that person leaves — it is genuinely hard to sustain. Phil could sell the kaupapa because he is from there, he lived it, he believed it wholeheartedly. That is hard to hand over.
+
+What he did leave behind: graduates who are still employed and making their own way. He enabled it — but they made their own luck from there. That is the real outcome.
+
+What he wishes he had done more of: staying closer to graduates after placement, providing more pastoral care in employment, building stronger networks around them so they were not left alone in their first jobs.
+
+The question for anyone running a programme like this is: how do you embed the change so it is sustainable when you are not there? Phil does not have a perfect answer. But he thinks Piripi is part of it — passing knowledge on, making the model visible, giving communities a starting point so they do not have to build from zero.
+
+The framework can be picked up and used. That is the whole point. But whoever picks it up has to make it their own — because in the end, it is the person behind it that makes communities believe.
+
+If you want to explore this with Phil directly: linkedin.com/in/phil-kupenga
