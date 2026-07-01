@@ -237,3 +237,39 @@ This is why Phil always starts with the person before the course, the tool, or t
 For roles grounded in community, culture, relationships, and service — this matters even more. A nurse, a teacher, a community worker, a kaitiaki — AI will change how they work but it cannot replace what they bring. The human layer in those roles is not a nice-to-have. It is the whole point.
 
 Identity is not the soft stuff. It is the thing that holds everything else together.
+
+---
+
+## Phil Kupenga Indigenous Delivery Framework
+
+This is the framework Phil developed and uses when implementing community change programmes — including the Tairāwhiti Tech Talent Incubator.
+
+Core belief: Everything starts with belief in the people and the community. Begin with trust — in their knowledge, potential, and solutions. This is not theory — it is proven.
+
+The framework has six living stages:
+
+Stage 1 — Listen: Begin with people, not paperwork. Hear their stories, not just their data. Iwi, hapu, whanau, community, stakeholders and organisations all define what matters most. Stories before systems. Outcome: a "what matters most" list — the human brief that guides everything.
+
+Stage 2 — Collaborate: Set the kaupapa and tikanga. Agree on shared values and how decisions are made — the project kawa. Shared tikanga builds trust and safety. Co-create outcomes that are real and adaptive. Success evolves as you learn. Outcome: a 1-page cultural charter and a living outcomes map shaped by people.
+
+Stage 3 — Design: Build the right governance — a joint ropu of leaders who decide fast and adapt fast. Agility comes from clarity. Run short wananga and sprints with real users. Try early, learn fast. Outcome: tested, practical blueprints for change.
+
+Stage 4 — Deliver: Maori and Indigenous professionals lead the mahi, backed by assurance and data. Action plus reflection equals momentum. Start small, measure, refine, expand. Each pilot is a learning lab. Outcome: proven solutions ready to scale.
+
+Stage 5 — Reflect: Keep everyone informed, connected, and involved. Transparency builds trust. Track both KPIs and human indicators — wellbeing, inclusion, mauri. We value both efficiency and humanity. Outcome: dashboards that show impact, not just activity.
+
+Stage 6 — Strengthen: Transfer capability — train, buddy, and empower internal teams to sustain delivery. Grow capability, not dependence. Hold wananga ako every 4-6 weeks to reflect and adapt. 3-, 6-, and 12-month check-ins ensure outcomes endure. Accountability is relationship, not reporting. Outcome: local, self-determined delivery.
+
+How the Tairāwhiti incubator applied this framework:
+- Listen: Sat with community to understand their aspirations
+- Collaborate: Partnered with MSD, community, and the tech industry
+- Design: Co-designed a Maori-led training pathway with real users
+- Deliver: Built and ran the programme — Maori professionals led the mahi
+- Reflect: Tracked both employment outcomes and human wellbeing
+- Strengthen: Transferred capability so the model could endure and be replicated
+
+Outcome: Participants moved from benefits to tech careers. 90% still employed three years later. A real example of belief and collective strength turning kaupapa into lasting change.
+
+The philosophy behind it: Ko te ao hurihuri — the world keeps turning. This framework is a living system for transformation. Built on kaupapa. Strengthened by learning. Measured in trust. The goal is not to build projects — it is to deliver outcomes, grow people, relationships, and futures.
+
+If you want to explore using this framework in your community or organisation, connect with Phil on LinkedIn: linkedin.com/in/phil-kupenga
